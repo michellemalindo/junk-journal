@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Junk Journal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <main class="desk">
+    <div class="scene">
+      <div class="book" id="book">
+        <div class="book-shadow"></div>
+        <img class="ribbon" src="{{ url_for('static', filename='img/ribbon.webp') }}" alt="">
+        <div class="back-cover"></div>
+        <div class="page-block"></div>
+
+        <!-- The two visible pages of the open spread. -->
+        <section class="page page-left" id="leftPage" hidden></section>
+        <section class="page page-right" id="rightPage"></section>
+
+        <img class="spine" src="{{ url_for('static', filename='img/spine.webp') }}" alt="">
+
+        <div class="cover" id="cover" role="button" tabindex="0" aria-label="Open the journal">
+          <img class="cover-front" src="{{ url_for('static', filename='img/board.webp') }}" alt="Leather journal cover">
+          <div class="cover-back" title="Close the journal"><div class="endpaper"></div></div>
+        </div>
+      </div>
+    </div>
+    <p class="hint" id="hint">click the journal to open it</p>
+  </main>
+
+  <!-- Sticker tray: slides in beside the book while a page is open. -->
+  <aside class="tray" id="tray" aria-label="Stickers">
+    <nav class="tray-tabs" id="trayTabs"></nav>
+    <div class="tray-body" id="trayBody"></div>
+    <div class="tray-foot" id="trayFoot"></div>
+    <input type="file" id="photoInput" accept="image/*" multiple hidden>
+  </aside>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
